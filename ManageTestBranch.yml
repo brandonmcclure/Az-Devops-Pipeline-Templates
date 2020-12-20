@@ -19,6 +19,7 @@ stages:
       inputs:
         targetType: 'inline'
         script: |
+          git checkout main
           git checkout -b test 
-          git push
+          git push --set-upstream origin test
         failOnStderr: false
