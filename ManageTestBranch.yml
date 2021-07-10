@@ -1,0 +1,25 @@
+trigger:
+  - main
+pr:
+  - main
+
+stages:
+- stage: UpdateTestBranch
+  displayName: Update Test Branch
+  jobs:
+  - job: UpdateTestBranch
+    displayName: Update Test Branch
+    pool:
+      vmImage: 'ubuntu-latest'
+    steps:
+    - checkout: self
+      persistCredentials: true
+    - task: PowerShell@2
+      displayName: Create test branch
+      inputs:
+        targetType: 'inline'
+        script: |
+          git checkout main
+          git checkout -b test 
+          git push --set-upstream origin test
+        failOnStderr: false
