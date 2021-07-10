@@ -7,7 +7,7 @@ I am going to attempt to structure these in a way that pipelines that are depend
 You will add a resources attrbiute to your pipeline that will use them. Add triggers on `main` and `test` so that your pipeline will get triggered when we change the templates. 
 
 ```
-resourcese
+resources:
   repositories:
       - repository: templates
         type: github
